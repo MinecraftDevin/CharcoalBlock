@@ -9,10 +9,7 @@ public class FuelHandler implements IFuelHandler {
 
     public int getBurnTime(ItemStack fuel) {
         ItemStack itemStack = fuel;
-        Item fuelItem = itemStack.getItem();
-        if (fuelItem.equals(ModBlocks.charcoalBlock)) {
-            return 16000;
-        }
+        if (fuel.isItemEqual(new ItemStack(ModBlocks.charcoalBlock))) { return 16000; }
         else {
             return 0;
         }
