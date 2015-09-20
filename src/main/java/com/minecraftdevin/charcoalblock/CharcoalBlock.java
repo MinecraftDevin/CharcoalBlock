@@ -63,7 +63,7 @@ public class CharcoalBlock {
             //blocks
             renderItem.getItemModelMesher().register(Item.getItemFromBlock(ModBlocks.charcoalBlock), 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ((BlockHelper) ModBlocks.charcoalBlock).getName(), "inventory"));
 
-            //items Mod doesn't have items
+            //item Mod doesn't have item
             // renderItem.getItemModelMesher().register(Item.getItemFromBlock(ModBlocks.charcoalBlock), 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ((BlockHelper) ModBlocks.charcoalBlock).getName(), "inventory"));
         }
     }
