@@ -7,7 +7,7 @@ public class BlockCharcoalBlock extends BlockHelper
     public BlockCharcoalBlock()
     {
         super();
-        this.setBlockName("charcoalBlock");
+        this.setUnlocalizedName("charcoalBlock");
         setHardness(2.0F);
         setResistance(5.0F);
         this.setCreativeTab(CreativeTabs.tabBlock);

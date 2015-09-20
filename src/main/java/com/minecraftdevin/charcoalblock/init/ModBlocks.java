@@ -1,8 +1,7 @@
 package com.minecraftdevin.charcoalblock.init;
 import com.minecraftdevin.charcoalblock.block.BlockCharcoalBlock;
 import com.minecraftdevin.charcoalblock.block.BlockHelper;
-import cpw.mods.fml.common.IFuelHandler;
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModBlocks
 {

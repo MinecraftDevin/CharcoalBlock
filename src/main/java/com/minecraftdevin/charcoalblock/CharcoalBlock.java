@@ -1,6 +1,7 @@
 package com.minecraftdevin.charcoalblock;
 
 import com.minecraftdevin.charcoalblock.OreDictionary.OreDictionaryHelper;
+import com.minecraftdevin.charcoalblock.block.BlockHelper;
 import com.minecraftdevin.charcoalblock.configuration.ConfigurationHelper;
 import com.minecraftdevin.charcoalblock.fuel.FuelHandler;
 import com.minecraftdevin.charcoalblock.init.ModBlocks;
@@ -8,14 +9,20 @@ import com.minecraftdevin.charcoalblock.init.Recipes;
 import com.minecraftdevin.charcoalblock.proxy.IProxy;
 import com.minecraftdevin.charcoalblock.reference.Reference;
 import com.minecraftdevin.charcoalblock.util.LogHelper;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
+import jdk.nashorn.internal.ir.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.item.Item;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.FMLLog;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
 import org.apache.logging.log4j.Level;
 
 
@@ -49,6 +56,16 @@ public class CharcoalBlock {
         Recipes.init();
         GameRegistry.registerFuelHandler(new FuelHandler());
         OreDictionaryHelper.init();
+        //register renders
+        if(event.getSide() == Side.CLIENT) {
+            RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
+
+            //blocks
+            renderItem.getItemModelMesher().register(Item.getItemFromBlock(ModBlocks.charcoalBlock), 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ((BlockHelper) ModBlocks.charcoalBlock).getName(), "inventory"));
+
+            //items Mod doesn't have items
+            // renderItem.getItemModelMesher().register(Item.getItemFromBlock(ModBlocks.charcoalBlock), 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ((BlockHelper) ModBlocks.charcoalBlock).getName(), "inventory"));
+        }
     }
 
     @Mod.EventHandler
