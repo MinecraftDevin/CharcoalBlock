@@ -1,6 +1,5 @@
 {
   "variants": {
     "normal": { "model": "charcoalblock:charcoalblock" },
-    "inventory": { "model": "charcoalblock:charcoalBlock" }
   }
 }
