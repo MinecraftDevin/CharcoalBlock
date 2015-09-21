@@ -52,7 +52,7 @@ eclipse/options.txt
 eclipse/logs/fml-client-latest.log
 eclipse/*
 .gradle/*
-.build/*
+build/*
 .idea/*
 *.iml
 *.ipr
