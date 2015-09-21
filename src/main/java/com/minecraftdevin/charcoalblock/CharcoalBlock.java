@@ -6,13 +6,14 @@ import com.minecraftdevin.charcoalblock.configuration.ConfigurationHelper;
 import com.minecraftdevin.charcoalblock.fuel.FuelHandler;
 import com.minecraftdevin.charcoalblock.init.ModBlocks;
 import com.minecraftdevin.charcoalblock.init.Recipes;
+import com.minecraftdevin.charcoalblock.proxy.ClientProxy;
 import com.minecraftdevin.charcoalblock.proxy.IProxy;
 import com.minecraftdevin.charcoalblock.reference.Reference;
-import com.minecraftdevin.charcoalblock.render.InventoryRenderHelper;
+import com.minecraftdevin.charcoalblock.render.RenderHelper;
 import com.minecraftdevin.charcoalblock.util.LogHelper;
-import jdk.nashorn.internal.ir.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -35,8 +36,9 @@ public class CharcoalBlock {
     @Mod.Instance("CharcoalBlock")
     public static CharcoalBlock instance;
 
-    @SidedProxy(clientSide ="com.minecraftdevin.charcoalblock.proxy.ClientProxy", serverSide = "com.minecraftdevin.charcoalblock.proxy.ServerProxy")
+    /*@SidedProxy(clientSide ="com.minecraftdevin.charcoalblock.proxy.ClientProxy", serverSide = "com.minecraftdevin.charcoalblock.proxy.ServerProxy")
     public static IProxy proxy;
+    */
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
@@ -48,6 +50,7 @@ public class CharcoalBlock {
             FMLLog.log(Reference.MOD_ID, Level.INFO, "Custom configuration: true. Custom burn time: " + ConfigurationHelper.CharcoalBlockBurnTime);
         }
         ModBlocks.init();
+        //proxy.preInit();
 
     }
 
@@ -57,12 +60,12 @@ public class CharcoalBlock {
         Recipes.init();
         GameRegistry.registerFuelHandler(new FuelHandler());
         OreDictionaryHelper.init();
-        //register renders
+        //proxy.init();
         if(event.getSide() == Side.CLIENT) {
             RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
-
-            //blocks
-            renderItem.getItemModelMesher().register(Item.getItemFromBlock(ModBlocks.charcoalBlock), 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ((BlockHelper) ModBlocks.charcoalBlock).getName(), "inventory"));
+            renderItem.getItemModelMesher().register(Item.getItemFromBlock(ModBlocks.charcoalBlock), 0, new ModelResourceLocation(Reference.MOD_ID + ":" + "charcoalblock:charcoalblock", "inventory"));
+            ModelBakery.addVariantName(Item.getItemFromBlock(ModBlocks.charcoalBlock), "charcoalblock:charcoalblock");
+            new ModelResourceLocation("charcoalblock");
             renderItem.getItemModelMesher().register(Item.getItemFromBlock(ModBlocks.charcoalBlock), 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ((BlockHelper) ModBlocks.charcoalBlock).getName(), "inventory"));
         }
     }
