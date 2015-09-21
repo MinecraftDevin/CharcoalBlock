@@ -52,4 +52,9 @@ eclipse/options.txt
 eclipse/logs/fml-client-latest.log
 eclipse/*
 .gradle/*
+.build/*
+.idea/*
+*.iml
+*.ipr
+*.iws
 eclipse/usernamecache.json
