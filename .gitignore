@@ -50,3 +50,6 @@ eclipse/logs/fml-junk-earlystartup.log
 eclipse/logs/latest.log
 eclipse/options.txt
 eclipse/logs/fml-client-latest.log
+eclipse/*
+.gradle/*
+eclipse/usernamecache.json
