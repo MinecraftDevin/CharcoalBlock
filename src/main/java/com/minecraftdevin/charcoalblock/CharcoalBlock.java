@@ -8,6 +8,7 @@ import com.minecraftdevin.charcoalblock.init.ModBlocks;
 import com.minecraftdevin.charcoalblock.init.Recipes;
 import com.minecraftdevin.charcoalblock.proxy.IProxy;
 import com.minecraftdevin.charcoalblock.reference.Reference;
+import com.minecraftdevin.charcoalblock.render.InventoryRenderHelper;
 import com.minecraftdevin.charcoalblock.util.LogHelper;
 import jdk.nashorn.internal.ir.Block;
 import net.minecraft.client.Minecraft;
@@ -62,9 +63,7 @@ public class CharcoalBlock {
 
             //blocks
             renderItem.getItemModelMesher().register(Item.getItemFromBlock(ModBlocks.charcoalBlock), 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ((BlockHelper) ModBlocks.charcoalBlock).getName(), "inventory"));
-
-            //item Mod doesn't have item
-            // renderItem.getItemModelMesher().register(Item.getItemFromBlock(ModBlocks.charcoalBlock), 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ((BlockHelper) ModBlocks.charcoalBlock).getName(), "inventory"));
+            renderItem.getItemModelMesher().register(Item.getItemFromBlock(ModBlocks.charcoalBlock), 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ((BlockHelper) ModBlocks.charcoalBlock).getName(), "inventory"));
         }
     }
 

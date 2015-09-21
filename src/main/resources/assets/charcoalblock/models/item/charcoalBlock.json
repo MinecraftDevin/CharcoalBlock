@@ -1,5 +1,5 @@
 {
-  "parent": "charcoalblock:block/charcoalBlock",
+  "parent": "charcoalblock:block/charcoalblock",
   "display": {
     "thirdperson": {
       "rotation": [ 10, -45, 170 ],
