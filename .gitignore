@@ -58,3 +58,5 @@ build/*
 *.ipr
 *.iws
 eclipse/usernamecache.json
+
+build/classes/production/CharcoalBlock/com/minecraftdevin/charcoalblock/render/RenderHelper.class

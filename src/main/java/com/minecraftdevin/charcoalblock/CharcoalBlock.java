@@ -1,6 +1,7 @@
 package com.minecraftdevin.charcoalblock;
 
 import com.minecraftdevin.charcoalblock.OreDictionary.OreDictionaryHelper;
+import com.minecraftdevin.charcoalblock.block.BlockCharcoalBlock;
 import com.minecraftdevin.charcoalblock.block.BlockHelper;
 import com.minecraftdevin.charcoalblock.configuration.ConfigurationHelper;
 import com.minecraftdevin.charcoalblock.fuel.FuelHandler;
@@ -61,13 +62,15 @@ public class CharcoalBlock {
         GameRegistry.registerFuelHandler(new FuelHandler());
         OreDictionaryHelper.init();
         //proxy.init();
-        if(event.getSide() == Side.CLIENT) {
+        /*if(event.getSide() == Side.CLIENT) {
             RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
             renderItem.getItemModelMesher().register(Item.getItemFromBlock(ModBlocks.charcoalBlock), 0, new ModelResourceLocation(Reference.MOD_ID + ":" + "charcoalblock:charcoalblock", "inventory"));
             ModelBakery.addVariantName(Item.getItemFromBlock(ModBlocks.charcoalBlock), "charcoalblock:charcoalblock");
             new ModelResourceLocation("charcoalblock");
             renderItem.getItemModelMesher().register(Item.getItemFromBlock(ModBlocks.charcoalBlock), 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ((BlockHelper) ModBlocks.charcoalBlock).getName(), "inventory"));
+
         }
+       */
     }
 
     @Mod.EventHandler
