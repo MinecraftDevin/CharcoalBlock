@@ -10,7 +10,6 @@ import com.minecraftdevin.charcoalblock.init.Recipes;
 import com.minecraftdevin.charcoalblock.proxy.ClientProxy;
 import com.minecraftdevin.charcoalblock.proxy.IProxy;
 import com.minecraftdevin.charcoalblock.reference.Reference;
-import com.minecraftdevin.charcoalblock.render.RenderHelper;
 import com.minecraftdevin.charcoalblock.util.LogHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;
